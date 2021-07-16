@@ -1,0 +1,32 @@
+Scenario: You got to notify many clients(subscribers/observers) which get registered to your
+application(publisher/subject). The observers are dependent on the subject and get registered
+with the subject by taking a subject instance.
+public observer(Subject subject){
+    subject.register(observer)
+    }
+Example: Newspaper subscription.
+
+Definition: The Observer Pattern defines a one-to-many dependency between objects so that
+when one object changes state, all its dependents are notified and updated automatically.
+
+Note:The subject can be  passed as a reference to the observers.
+
+Problem: How do you notify each of the observer if there is a small change in the subject
+Approach1: Implement a function in the subject class itself to notify the observers.
+            measurementsChanged(){
+                // get new data
+                // Display the changes.
+                // display1.update()
+                // display2.update()
+            }
+
+      What if you want to add a new display3, you have to change the code.
+      And also, you are coding to concrete implementation.
+
+Solution:
+        Subject interface         ---------------->  Observer interace
+                                    HAS MANY
+
+        Concrete implementation
+        of subject.
+
